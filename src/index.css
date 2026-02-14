@@ -94,20 +94,7 @@
 	--memphis-cream: #1a1a2e;
 }
 
-/* Memphis Background Pattern */
-body::before {
-	content: '';
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: radial-gradient(circle at 10% 20%, var(--memphis-pink) 2px, transparent 2px), radial-gradient(circle at 90% 80%, var(--memphis-teal) 2px, transparent 2px), radial-gradient(circle at 50% 50%, var(--memphis-yellow) 1px, transparent 1px);
-	background-size: 80px 80px, 60px 60px, 40px 40px;
-	opacity: 0.15;
-	pointer-events: none;
-	z-index: -1;
-}
+
 
 /* responsive typogrphy*/
 @media screen and (max-width: 1024px) {
@@ -198,32 +185,7 @@ img {
 	position: relative;
 }
 
-/* Memphis Section Decorations */
-.section::before {
-	content: '';
-	position: absolute;
-	width: 60px;
-	height: 60px;
-	background-color: var(--memphis-yellow);
-	border: var(--border-thick);
-	top: 4rem;
-	right: 5%;
-	transform: rotate(15deg);
-	z-index: -1;
-}
 
-.section::after {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	background-color: var(--memphis-teal);
-	border-radius: 50%;
-	border: var(--border-thick);
-	bottom: 3rem;
-	left: 8%;
-	z-index: -1;
-}
 
 .section__title {
 	font-size: var(--h1-font-size);
@@ -248,16 +210,7 @@ img {
 }
 
 .section__title::after {
-	content: '';
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	background-color: var(--memphis-teal);
-	border: 2px solid var(--memphis-black);
-	border-radius: 50%;
-	right: -30px;
-	top: 50%;
-	transform: translateY(-50%);
+	display: none;
 }
 
 .dark-theme .section__title::before {
@@ -308,6 +261,7 @@ img {
 		transform: translate(3px, 3px);
 		box-shadow: 3px 3px 0px var(--memphis-black);
 	}
+
 	100% {
 		transform: translate(0, 0);
 		box-shadow: var(--shadow);

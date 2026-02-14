@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
-import Logo from '../../assets/logo.png';
-import LogoWhite from '../../assets/logoWhite.png';
-import { useTheme } from '../../context/theme';
 
 const navLinks = [
 	{ id: 1, link: '#home', icon: 'icon-home' },
@@ -15,15 +12,10 @@ const navLinks = [
 ];
 
 const Sidebar = () => {
-	const { isDarkMode } = useTheme();
 	const [toggle, showMenu] = useState(false);
 	return (
 		<>
 			<aside className={toggle ? 'aside show-menu' : 'aside'} onClick={() => showMenu(!toggle)}>
-				<a href="#home" className="nav__logo">
-					<img src={isDarkMode ? LogoWhite : Logo} alt="" className="sidebar__logo" />
-				</a>
-
 				<nav className="nav">
 					<div className="nav__menu">
 						<ul className="nav__list">
@@ -37,10 +29,6 @@ const Sidebar = () => {
 						</ul>
 					</div>
 				</nav>
-
-				<div className="nav__footer">
-					<span className="copyright">&copy; 2025 - 2026 | v2.0</span>
-				</div>
 			</aside>
 
 			<div className={toggle ? 'nav__toggle nav__toggle-open' : 'nav__toggle'} onClick={() => showMenu(!toggle)}>
@@ -55,3 +43,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

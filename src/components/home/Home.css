@@ -12,10 +12,11 @@
 	color: color-mix(in srgb, var(--text-color) 85%, transparent);
 }
 
-.memphis-bg-texttype > * {
+.memphis-bg-texttype>* {
 	position: relative;
 	z-index: 1;
 }
+
 /* MEMPHIS DESIGN - HOME SECTION */
 .home {
 	position: relative;
@@ -88,71 +89,40 @@
 	animation: spin-slow 20s linear infinite;
 }
 
-/* Floating decorative dots */
+/* Floating decorative dots - REMOVED */
 .home__img-decoration {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	pointer-events: none;
-}
-
-.home__img-decoration span {
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	border: 2px solid var(--memphis-black);
-}
-
-.home__img-decoration span:nth-child(1) {
-	background: var(--memphis-teal);
-	top: 10%;
-	left: -25px;
-	animation: float-dot 3s ease-in-out infinite;
-}
-
-.home__img-decoration span:nth-child(2) {
-	background: var(--memphis-orange);
-	bottom: 20%;
-	right: -20px;
-	animation: float-dot 3s ease-in-out infinite 0.5s;
-}
-
-.home__img-decoration span:nth-child(3) {
-	background: var(--memphis-purple);
-	bottom: -12px;
-	left: 30%;
-	width: 10px;
-	height: 10px;
-	animation: float-dot 3s ease-in-out infinite 1s;
+	display: none;
 }
 
 @keyframes spin-slow {
 	from {
 		transform: rotate(0deg);
 	}
+
 	to {
 		transform: rotate(360deg);
 	}
 }
 
 @keyframes bounce-shape {
+
 	0%,
 	100% {
 		transform: translateY(0) rotate(0deg);
 	}
+
 	50% {
 		transform: translateY(-8px) rotate(10deg);
 	}
 }
 
 @keyframes float-dot {
+
 	0%,
 	100% {
 		transform: translateY(0);
 	}
+
 	50% {
 		transform: translateY(-6px);
 	}
@@ -259,12 +229,15 @@
 	0% {
 		top: 29%;
 	}
+
 	15% {
 		top: 50%;
 	}
+
 	50% {
 		top: 50%;
 	}
+
 	100% {
 		top: 29%;
 	}
@@ -298,16 +271,20 @@
 }
 
 @keyframes memphis-float {
+
 	0%,
 	100% {
 		transform: translateY(0) rotate(0deg);
 	}
+
 	25% {
 		transform: translateY(-20px) rotate(5deg);
 	}
+
 	50% {
 		transform: translateY(0) rotate(0deg);
 	}
+
 	75% {
 		transform: translateY(20px) rotate(-5deg);
 	}
@@ -317,6 +294,7 @@
 	from {
 		transform: rotate(0deg);
 	}
+
 	to {
 		transform: rotate(360deg);
 	}
@@ -331,6 +309,7 @@
 		transform: scale(0.1);
 		opacity: 0;
 	}
+
 	to {
 		transform: scale(1);
 		opacity: 1;
