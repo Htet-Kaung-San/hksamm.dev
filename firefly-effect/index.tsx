@@ -3,20 +3,20 @@
 import { useEffect, useRef } from "react";
 
 const FireflyEffect = ({
-  circleCount = 600,
-  speedFactor = 0.8,
+  circleCount = 230,
+  speedFactor = 2,
   minRadius = 5,
-  maxRadius = 20,
+  maxRadius = 5,
   focusRadius = 200,
   glowIntensity = 15,
-  maxOpacity = 0.9,
-  minOpacity = 0.01,
+  maxOpacity = 1,
+  minOpacity = 0,
   intensityPower = 3.5,
   backgroundColor = "#000000",
-  color1 = "#fbf8cc",
-  color2 = "#fdd835",
-  color3 = "#fff176",
-  color4 = "#ffeb3b",
+  color1 = "#ffffff",
+  color2 = "#ffffff",
+  color3 = "#ffffff",
+  color4 = "#ffffff",
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouseRef = useRef<{ x: number | null; y: number | null }>({
@@ -46,6 +46,7 @@ const FireflyEffect = ({
       randomFactor: number;
       twinklePhase: number;
       twinkleSpeed: number;
+      opacityPhase: number;
 
       constructor(
         x: number,
@@ -68,6 +69,7 @@ const FireflyEffect = ({
         this.randomFactor = 0.7 + Math.sin(x * 0.05) * 0.3;
         this.twinklePhase = Math.random() * Math.PI * 2;
         this.twinkleSpeed = 0.65 + Math.random() * 1.2;
+        this.opacityPhase = Math.random() * Math.PI * 2;
       }
 
       draw(mouseX: number | null, mouseY: number | null, time: number): void {
@@ -91,9 +93,10 @@ const FireflyEffect = ({
         }
 
         const intensity = Math.min(1, ambientIntensity + hoverIntensity);
-        const hoverRadiusBoost = maxRadius * hoverIntensity * 1.1;
-        const renderRadius = this.baseRadius + maxRadius * (0.08 + intensity * 0.42) + hoverRadiusBoost;
-        const opacity = Math.min(maxOpacity, Math.max(minOpacity, 0.1 + intensity * 0.8));
+        const sizeIntensity = Math.min(1, ambientIntensity);
+        const renderRadius = this.baseRadius + maxRadius * (0.08 + sizeIntensity * 0.42);
+        const movingOpacity = (Math.sin(this.opacityPhase) + 1) * 0.5;
+        const opacity = Math.min(maxOpacity, Math.max(minOpacity, movingOpacity * maxOpacity));
 
         this.ctx.save();
         this.ctx.beginPath();
@@ -109,20 +112,14 @@ const FireflyEffect = ({
       }
 
       update(width: number, height: number, mouseX: number | null, mouseY: number | null, time: number): void {
-        let hoverMotionBoost = 0;
-        if (mouseX !== null && mouseY !== null) {
-          const dx = mouseX - this.x;
-          const dy = mouseY - this.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < focusRadius) {
-            hoverMotionBoost = 1 - distance / focusRadius;
-          }
-        }
-
-        // Keep non-hovered particles drifting slowly; speed up near cursor.
-        const driftMultiplier = 0.22 + hoverMotionBoost * 0.78;
-        this.x += this.baseDx * speedFactor * driftMultiplier;
-        this.y += this.baseDy * speedFactor * driftMultiplier;
+        // Keep a constant drift speed regardless of cursor position.
+        const driftMultiplier = 0.22;
+        const stepX = this.baseDx * speedFactor * driftMultiplier;
+        const stepY = this.baseDy * speedFactor * driftMultiplier;
+        this.x += stepX;
+        this.y += stepY;
+        // Phase advance is tied to movement distance, so opacity cycles as circles move.
+        this.opacityPhase += Math.hypot(stepX, stepY) * 0.22;
 
         // Bounce off walls
         if (this.x + this.baseRadius > width || this.x - this.baseRadius < 0) {
