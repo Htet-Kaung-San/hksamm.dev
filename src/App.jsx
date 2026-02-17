@@ -20,7 +20,7 @@ function App() {
 				glowIntensity={18}
 				maxOpacity={0.8}
 				minOpacity={0.03}
-				backgroundColor={isDarkMode ? '#0f1324' : '#fff8e7'}
+				backgroundColor="#000000"
 				color1={isDarkMode ? '#fef9c3' : '#ffd166'}
 				color2={isDarkMode ? '#fde047' : '#ffb703'}
 				color3={isDarkMode ? '#facc15' : '#ffca3a'}
