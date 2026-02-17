@@ -3,15 +3,15 @@
 import { useEffect, useRef } from "react";
 
 const FireflyEffect = ({
-  circleCount = 1500,
+  circleCount = 600,
   speedFactor = 0.8,
-  minRadius = 1,
-  maxRadius = 10,
-  focusRadius = 150,
+  minRadius = 5,
+  maxRadius = 20,
+  focusRadius = 200,
   glowIntensity = 15,
   maxOpacity = 0.9,
-  minOpacity = 0.05,
-  intensityPower = 2.5,
+  minOpacity = 0.01,
+  intensityPower = 3.5,
   backgroundColor = "#000000",
   color1 = "#fbf8cc",
   color2 = "#fdd835",
@@ -44,6 +44,8 @@ const FireflyEffect = ({
       noiseOffsetX: number;
       noiseOffsetY: number;
       randomFactor: number;
+      twinklePhase: number;
+      twinkleSpeed: number;
 
       constructor(
         x: number,
@@ -64,51 +66,63 @@ const FireflyEffect = ({
         this.noiseOffsetY = y * 0.01;
 
         this.randomFactor = 0.7 + Math.sin(x * 0.05) * 0.3;
+        this.twinklePhase = Math.random() * Math.PI * 2;
+        this.twinkleSpeed = 0.65 + Math.random() * 1.2;
       }
 
-      draw(mouseX: number | null, mouseY: number | null): void {
-        if (mouseX === null || mouseY === null) return;
-
-        const dx = mouseX - this.x;
-        const dy = mouseY - this.y;
-
-        const distanceSquared = dx * dx + dy * dy;
-        const focusRadiusSquared = focusRadius * focusRadius;
-
-        if (distanceSquared > focusRadiusSquared * 1.5) return;
-
-        const distance = Math.sqrt(distanceSquared);
-
+      draw(mouseX: number | null, mouseY: number | null, time: number): void {
         const noiseOffset =
           Math.sin(this.noiseOffsetX + this.noiseOffsetY) * 30 +
           Math.cos(this.noiseOffsetX * 2 - this.noiseOffsetY * 1.5) * 25;
+        const twinkle = (Math.sin(time * this.twinkleSpeed + this.twinklePhase + noiseOffset * 0.02) + 1) * 0.5;
+        const ambientIntensity = (0.12 + twinkle * 0.24) * this.randomFactor;
 
-        const adjustedDistance = distance + noiseOffset;
+        let hoverIntensity = 0;
+        if (mouseX !== null && mouseY !== null) {
+          const dx = mouseX - this.x;
+          const dy = mouseY - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const adjustedDistance = distance + noiseOffset;
 
-        if (adjustedDistance < focusRadius) {
-          const proximity = 1 - adjustedDistance / focusRadius;
-          const intensity = Math.pow(proximity, intensityPower) * this.randomFactor;
-
-          const renderRadius = this.baseRadius + (maxRadius * intensity);
-          const opacity = Math.max(minOpacity, intensity * maxOpacity);
-
-          this.ctx.save();
-          this.ctx.beginPath();
-
-          this.ctx.shadowBlur = glowIntensity * intensity + Math.random() * 10;
-          this.ctx.shadowColor = this.color;
-          this.ctx.globalAlpha = opacity;
-          this.ctx.fillStyle = this.color;
-
-          this.ctx.arc(this.x, this.y, renderRadius, 0, Math.PI * 2);
-          this.ctx.fill();
-          this.ctx.restore();
+          if (adjustedDistance < focusRadius) {
+            const proximity = 1 - adjustedDistance / focusRadius;
+            hoverIntensity = Math.pow(proximity, intensityPower) * this.randomFactor;
+          }
         }
+
+        const intensity = Math.min(1, ambientIntensity + hoverIntensity);
+        const hoverRadiusBoost = maxRadius * hoverIntensity * 1.1;
+        const renderRadius = this.baseRadius + maxRadius * (0.08 + intensity * 0.42) + hoverRadiusBoost;
+        const opacity = Math.min(maxOpacity, Math.max(minOpacity, 0.1 + intensity * 0.8));
+
+        this.ctx.save();
+        this.ctx.beginPath();
+
+        this.ctx.shadowBlur = glowIntensity * (0.35 + intensity) + twinkle * 4;
+        this.ctx.shadowColor = this.color;
+        this.ctx.globalAlpha = opacity;
+        this.ctx.fillStyle = this.color;
+
+        this.ctx.arc(this.x, this.y, renderRadius, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.restore();
       }
 
-      update(width: number, height: number, mouseX: number | null, mouseY: number | null): void {
-        this.x += this.baseDx * speedFactor;
-        this.y += this.baseDy * speedFactor;
+      update(width: number, height: number, mouseX: number | null, mouseY: number | null, time: number): void {
+        let hoverMotionBoost = 0;
+        if (mouseX !== null && mouseY !== null) {
+          const dx = mouseX - this.x;
+          const dy = mouseY - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < focusRadius) {
+            hoverMotionBoost = 1 - distance / focusRadius;
+          }
+        }
+
+        // Keep non-hovered particles drifting slowly; speed up near cursor.
+        const driftMultiplier = 0.22 + hoverMotionBoost * 0.78;
+        this.x += this.baseDx * speedFactor * driftMultiplier;
+        this.y += this.baseDy * speedFactor * driftMultiplier;
 
         // Bounce off walls
         if (this.x + this.baseRadius > width || this.x - this.baseRadius < 0) {
@@ -119,7 +133,7 @@ const FireflyEffect = ({
           this.baseDy = -this.baseDy;
         }
 
-        this.draw(mouseX, mouseY);
+        this.draw(mouseX, mouseY, time);
       }
     }
 
@@ -157,11 +171,12 @@ const FireflyEffect = ({
 
       const width = window.innerWidth;
       const height = window.innerHeight;
+      const time = performance.now() * 0.001;
 
       const { x: mouseX, y: mouseY } = mouseRef.current;
 
       for (let i = 0; i < circles.length; i++) {
-        circles[i].update(width, height, mouseX, mouseY);
+        circles[i].update(width, height, mouseX, mouseY, time);
       }
 
       animationFrameId = requestAnimationFrame(animate);

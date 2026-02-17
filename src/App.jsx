@@ -12,7 +12,6 @@ function App() {
 	return (
 		<div className="app-shell">
 			<FireflyEffect
-				circleCount={1200}
 				speedFactor={0.55}
 				minRadius={0.8}
 				maxRadius={8}
