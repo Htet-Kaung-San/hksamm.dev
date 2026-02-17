@@ -1,7 +1,14 @@
 /* MEMPHIS DESIGN - MAIN APP STYLES */
-.main {
-  margin-left: 110px;
+.app-shell {
   position: relative;
+  min-height: 100vh;
+}
+
+.main {
+  margin-left: 0;
+  margin-top: 6.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Memphis floating decorations */
@@ -52,11 +59,17 @@
 
 @media screen and (max-width: 1024px) {
   .main {
-    margin-left: 0;
+    margin-top: 6rem;
   }
   
   .main::before,
   .main::after {
     display: none;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .main {
+    margin-top: 7.25rem;
   }
 }

@@ -131,6 +131,7 @@ body::before {
 
 html {
 	scroll-behavior: smooth;
+	scroll-padding-top: 8rem;
 }
 
 body,
