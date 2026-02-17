@@ -14,7 +14,7 @@ const Home = () => {
 					<img src={Me} alt="" className="home__img" />
 					<div className="home__img-decoration"></div>
 				</div>
-				<h1 className="home__name">Kavinda Weerasinghe</h1>
+				<h1 className="home__name">Htet Kaung San</h1>
 				<span className="home__education">Full-Stack Engineer & Designer</span>
 				<div className="memphis-bg-texttype">
 					<TextType text={['Crafting Code & Shaping Solution', 'Code Artist + Problem Solver', 'Simplifying Complexity + Enhancing Experience']} typingSpeed={75} pauseDuration={2000} showCursor={true} cursorCharacter="●" />

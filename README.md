@@ -133,7 +133,7 @@ You can customize this portfolio by:
 
 ## 👨‍💻 Author
 
-**Kavinda Weerasinghe**
+**Htet Kaung San**
 
 - LinkedIn: [Kavinda Maduranga](https://www.linkedin.com/in/kavinda-maduranga-1302a71b7)
 - Twitter: [@kavindzMW](https://twitter.com/kavindzMW)
@@ -149,5 +149,5 @@ You can customize this portfolio by:
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/foverokavindz">Kavinda Weerasinghe</a>
+  Made with ❤️ by <a href="https://github.com/foverokavindz">Htet Kaung San</a>
 </p>
