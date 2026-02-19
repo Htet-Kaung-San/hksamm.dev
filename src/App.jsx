@@ -1,6 +1,5 @@
 import { Testimonials, Sidebar, Services, Resume, Pricing, Portfolio, Home, Contact, Blog, About, TechStack } from './components';
 import './App.css';
-import ThemeToggle from './components/themeToggle/ThemeToggle';
 import UserInfo from './components/UserInfo';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
@@ -24,7 +23,6 @@ function App() {
 				color4="#ffffff"
 			/>
 			<UserInfo />
-			<ThemeToggle />
 			<Sidebar />
 			<main className="main">
 				<>
