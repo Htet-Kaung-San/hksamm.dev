@@ -27,6 +27,16 @@
 	padding-bottom: 5rem;
 }
 
+.home__content {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+	column-gap: 3rem;
+}
+
 /* Memphis Grid Background */
 .home::before {
 	content: '';
@@ -43,14 +53,21 @@
 
 .intro {
 	max-width: 600px;
-	text-align: center;
+	text-align: left;
 	z-index: 2;
 	padding: 3rem;
 	position: relative;
-	margin-bottom: 2rem;
+	margin-bottom: 0;
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
+}
+
+.home__media {
+	display: flex;
 	align-items: center;
+	justify-content: flex-end;
+	z-index: 2;
 }
 
 /* Remove corner decorations since we removed the box */
@@ -63,7 +80,7 @@
 .home__img-wrapper {
 	position: relative;
 	display: inline-block;
-	margin-bottom: 2.5rem;
+	margin-bottom: 0;
 }
 
 .home img {
@@ -71,8 +88,12 @@
 	border-radius: 50%;
 	position: relative;
 	z-index: 2;
-	width: 120px;
-	height: 120px;
+	width: clamp(190px, 24vw, 500px);
+	height: clamp(190px, 24vw, 500px);
+}
+
+.home__img {
+	background-color: #ffffff;
 }
 
 /* Rotating ring around profile */
@@ -191,7 +212,7 @@
 	display: flex;
 	column-gap: 0.75rem;
 	margin: 1.5rem 0;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 .home__social-link {
@@ -410,6 +431,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+	.home__content {
+		column-gap: 1.5rem;
+	}
+
 	.home__social-link {
 		font-size: 1.125rem;
 		width: 40px;
@@ -418,11 +443,34 @@
 
 	.intro {
 		padding: 2rem;
-		margin: 0 1rem;
+		margin: 0;
 	}
 }
 
 @media screen and (max-width: 768px) {
+	.home__content {
+		grid-template-columns: 1fr;
+		row-gap: 1.5rem;
+	}
+
+	.home__media {
+		justify-content: center;
+	}
+
+	.intro {
+		text-align: center;
+		align-items: center;
+	}
+
+	.home__socials {
+		justify-content: center;
+	}
+
+	.home img {
+		width: 180px;
+		height: 180px;
+	}
+
 	.s2 {
 		animation: move 1.3s ease, memphis-float 5s ease-in-out infinite 0.5s;
 		left: 5%;
