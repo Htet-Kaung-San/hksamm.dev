@@ -7,7 +7,8 @@
 	width: fit-content;
 	max-width: calc(100% - 2rem);
 	background: var(--memphis-cream);
-	border: var(--border-thick);
+	border: 3px solid #ffffff;
+	border-radius: 999px;
 	padding: 0.6rem 0.85rem;
 	display: flex;
 	align-items: center;
@@ -49,13 +50,11 @@
 .nav__link:hover {
 	background: var(--memphis-pink) !important;
 	border: var(--border-medium);
-	box-shadow: 3px 3px 0 var(--memphis-black);
 	color: var(--memphis-black) !important;
 }
 
 .nav__link:active {
 	transform: translate(2px, 2px);
-	box-shadow: 1px 1px 0 var(--memphis-black);
 }
 
 .nav__link:visited {
@@ -111,7 +110,7 @@
 /* Dark Mode Styles for Sidebar */
 .dark-theme .aside {
 	background: var(--container-color);
-	border-color: var(--memphis-pink);
+	border-color: #ffffff;
 }
 
 .dark-theme .nav__link {
@@ -121,7 +120,6 @@
 .dark-theme .nav__link:hover {
 	background: var(--memphis-pink) !important;
 	border-color: #f8f8f8;
-	box-shadow: 3px 3px 0 var(--memphis-pink);
 	color: #1a1a2e !important;
 }
 
