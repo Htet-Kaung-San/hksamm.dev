@@ -2,7 +2,6 @@ import React from 'react';
 import './Home.css';
 import Me from '../../assets/animation-gif.gif';
 import HeaderSocials from './HeaderSocials';
-import ScrollDown from './ScrollDown';
 import Shapes from './Shapes';
 import TextType from '../../animations/textType/TextType';
 
@@ -28,7 +27,6 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			<ScrollDown />
 			<Shapes />
 		</section>
 	);

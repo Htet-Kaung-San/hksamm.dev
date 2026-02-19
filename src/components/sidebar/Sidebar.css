@@ -6,7 +6,7 @@
 	transform: translateX(-50%);
 	width: fit-content;
 	max-width: calc(100% - 2rem);
-	background: var(--container-color);
+	background: #000000;
 	border: 3px solid #ffffff;
 	border-radius: 999px;
 	padding: 0.6rem 0.85rem;
@@ -35,7 +35,7 @@
 
 .nav__link {
 	font-size: 1.3rem;
-	color: var(--memphis-black);
+	color: #ffffff;
 	font-weight: var(--font-bold);
 	transition: 0.2s ease;
 	width: 46px;
@@ -44,11 +44,12 @@
 	align-items: center;
 	justify-content: center;
 	border: 2px solid transparent;
-	background: transparent;
+	border-radius: 120px;
+	background: #000000;
 }
 
 .nav__link:hover {
-	background: var(--memphis-pink) !important;
+	background: #ffffff !important;
 	border: var(--border-medium);
 	color: var(--memphis-black) !important;
 }
@@ -58,7 +59,7 @@
 }
 
 .nav__link:visited {
-	color: var(--memphis-black);
+	color: #ffffff;
 }
 
 .nav__toggle {
@@ -109,7 +110,7 @@
 
 /* Dark Mode Styles for Sidebar */
 .dark-theme .aside {
-	background: var(--container-color);
+	background: #000000;
 	border-color: #ffffff;
 }
 
@@ -118,7 +119,7 @@
 }
 
 .dark-theme .nav__link:hover {
-	background: var(--memphis-pink) !important;
+	background: #ffffff !important;
 	border-color: #f8f8f8;
 	color: #1a1a2e !important;
 }
