@@ -244,6 +244,21 @@
 	margin-bottom: 2rem;
 }
 
+.about__cv-btn,
+.about__cv-btn:hover,
+.about__cv-btn:focus,
+.about__cv-btn:active {
+	background-color: #ffe156 !important;
+	color: #000000 !important;
+	border-radius: 999px;
+	box-shadow: none !important;
+	animation: none;
+}
+
+.about__cv-btn::before {
+	display: none;
+}
+
 .about__box {
 	flex-direction: column;
 	row-gap: 0.5rem;

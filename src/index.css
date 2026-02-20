@@ -199,33 +199,6 @@ img {
 	position: relative;
 }
 
-/* Memphis Section Decorations */
-.section::before {
-	content: '';
-	position: absolute;
-	width: 60px;
-	height: 60px;
-	background-color: var(--memphis-yellow);
-	border: var(--border-thick);
-	top: 4rem;
-	right: 5%;
-	transform: rotate(15deg);
-	z-index: -1;
-}
-
-.section::after {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	background-color: var(--memphis-teal);
-	border-radius: 50%;
-	border: var(--border-thick);
-	bottom: 3rem;
-	left: 8%;
-	z-index: -1;
-}
-
 .section__title {
 	font-size: var(--h1-font-size);
 	margin-left: 0.875rem;
@@ -237,32 +210,6 @@ img {
 	display: inline-block;
 	background: linear-gradient(180deg, transparent 85%, var(--memphis-yellow) 85%);
 	padding: 0 10px;
-}
-
-.section__title::before {
-	content: '//';
-	color: var(--memphis-pink);
-	font-size: 2rem;
-	position: absolute;
-	left: -1.5rem;
-	top: -0.5rem;
-}
-
-.section__title::after {
-	content: '';
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	background-color: var(--memphis-teal);
-	border: 2px solid var(--memphis-black);
-	border-radius: 50%;
-	right: -30px;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
-.dark-theme .section__title::before {
-	color: var(--memphis-pink);
 }
 
 /* Memphis Button Style */
@@ -333,10 +280,5 @@ img {
 @media screen and (max-width: 1024px) {
 	.section__title {
 		text-align: center;
-	}
-
-	.section::before,
-	.section::after {
-		display: none;
 	}
 }
