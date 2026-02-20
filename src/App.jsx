@@ -6,6 +6,8 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import FireflyEffect from '../firefly-effect';
 
 function App() {
+	const currentYear = new Date().getFullYear();
+
 	return (
 		<div className="app-shell">
 			<FireflyEffect
@@ -36,6 +38,11 @@ function App() {
 					<Contact />
 				</>
 			</main>
+			<footer className="site-footer">
+				<div className="container site-footer__inner">
+					<p>&copy; {currentYear} Htet Kaung San. All rights reserved.</p>
+				</div>
+			</footer>
 			<Analytics />
 			<SpeedInsights />
 		</div>

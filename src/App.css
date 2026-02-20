@@ -11,6 +11,21 @@
   z-index: 1;
 }
 
+.site-footer {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 0 2rem;
+}
+
+.site-footer__inner {
+  border-top: var(--border-medium);
+  padding-top: 1rem;
+  text-align: center;
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  letter-spacing: 0.4px;
+}
+
 /* Memphis floating decorations */
 
 

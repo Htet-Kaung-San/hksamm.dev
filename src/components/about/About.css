@@ -175,10 +175,45 @@
 	justify-self: center;
 	width: 215px;
 	height: 215px;
-	border: var(--border-thick);
-	padding: 8px;
-	background: var(--memphis-teal);
+	/* border: var(--memphis-orange) 5px solid; */
+	padding: 0px;
+	background: #fff;
+	border-radius: 500px;
+	margin-bottom: 0;
+	position: relative;
+	z-index: 2;
+}
+
+.about__img-ring-wrapper {
+	position: relative;
+	display: inline-block;
 	margin-bottom: 2rem;
+}
+
+.about__img-ring {
+	position: absolute;
+	top: calc(var(--about-ring-outset, 10px) * -1);
+	left: calc(var(--about-ring-outset, 10px) * -1);
+	width: calc(100% + (var(--about-ring-outset, 10px) * 2));
+	height: calc(100% + (var(--about-ring-outset, 10px) * 2));
+	z-index: 1;
+	pointer-events: none;
+	animation: about-spin-slow var(--about-ring-rotation-duration, 20s) linear infinite;
+}
+
+.about__img-ring-circle {
+	fill: none;
+	stroke: var(--border-color);
+	stroke-linecap: round;
+}
+
+@keyframes about-spin-slow {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .about__cv-btn,
