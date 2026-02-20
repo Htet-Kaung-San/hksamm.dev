@@ -59,18 +59,19 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--memphis-cream);
-  border-left: 3px solid var(--memphis-black);
+  background: black;
+  /* border-left: 3px solid var(--memphis-black); */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--memphis-pink);
-  border: 2px solid var(--memphis-black);
+  background: #17223e;
+  border-radius: 999px;
+  /* border: 2px solid var(--memphis-black); */
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: var(--memphis-yellow);
-}
+} */
 
 @media screen and (max-width: 1024px) {
   .main {
