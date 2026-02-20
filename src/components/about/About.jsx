@@ -37,17 +37,6 @@ const About = () => {
 
 						<p className="about__description">My goal is always the same: creating software that feels effortless for the user but is rock-solid on the backend, and I love every bit of the challenge. I'm a firm believer in continuous learning and always keeping a 'human-first' mindset in every line of code I write.</p>
 
-						<div className="about__expertise">
-							<h4 className="about__expertise-title">Expertise Areas</h4>
-							<div className="about__expertise-list">
-								<span className="expertise-badge">Computer Programming</span>
-								<span className="expertise-badge">UI/UX Design</span>
-								<span className="expertise-badge">Problem Solving</span>
-								<span className="expertise-badge">API Design & Development</span>
-								<span className="expertise-badge">Cloud & DevOps</span>
-								<span className="expertise-badge">AI & Automation</span>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
