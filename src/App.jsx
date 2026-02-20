@@ -1,4 +1,4 @@
-import { Testimonials, Sidebar, Services, Resume, Pricing, Portfolio, Home, Contact, Blog, About, TechStack } from './components';
+import { Sidebar, Services, Resume, Portfolio, Home, Contact, About, TechStack } from './components';
 import './App.css';
 import UserInfo from './components/UserInfo';
 import { Analytics } from '@vercel/analytics/react';
@@ -33,8 +33,6 @@ function App() {
 					<Resume />
 					<Portfolio />
 					{/* <Pricing /> */}
-					<Blog />
-					<Testimonials />
 					<Contact />
 				</>
 			</main>

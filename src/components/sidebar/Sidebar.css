@@ -6,7 +6,7 @@
 	transform: translateX(-50%);
 	width: fit-content;
 	max-width: calc(100% - 2rem);
-	background: #000000;
+	background: #17223e;
 	border: 3px solid #ffffff;
 	border-radius: 999px;
 	padding: 0.6rem 0.85rem;
@@ -45,13 +45,31 @@
 	justify-content: center;
 	border: 2px solid transparent;
 	border-radius: 120px;
-	background: #000000;
+	background: #17223e;
+}
+
+.nav__icon {
+	font-size: 1.5rem;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.nav__icon-image {
+	width: 1.5rem;
+	height: 1.5rem;
+	display: block;
+	filter: brightness(0) invert(1);
+	transition: filter 0.2s ease;
 }
 
 .nav__link:hover {
 	background: #ffffff !important;
 	border: var(--border-medium);
-	color: var(--memphis-black) !important;
+	color: #000000 !important;
+}
+
+.nav__link:hover .nav__icon-image {
+	filter: brightness(0) invert(0);
 }
 
 .nav__link:active {
@@ -81,6 +99,15 @@
 		height: 42px;
 		font-size: 1.2rem;
 	}
+
+	.nav__icon {
+		font-size: 1.35rem;
+	}
+
+	.nav__icon-image {
+		width: 1.35rem;
+		height: 1.35rem;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -100,6 +127,15 @@
 		height: 38px;
 		font-size: 1.05rem;
 	}
+
+	.nav__icon {
+		font-size: 1.15rem;
+	}
+
+	.nav__icon-image {
+		width: 1.15rem;
+		height: 1.15rem;
+	}
 }
 
 @media screen and (max-width: 520px) {
@@ -110,20 +146,20 @@
 
 /* Dark Mode Styles for Sidebar */
 .dark-theme .aside {
-	background: #000000;
+	background: #17223e;
 	border-color: #ffffff;
 }
 
 .dark-theme .nav__link {
-	color: #f8f8f8;
+	color: #ffffff;
 }
 
 .dark-theme .nav__link:hover {
 	background: #ffffff !important;
 	border-color: #f8f8f8;
-	color: #1a1a2e !important;
+	color: #000000 !important;
 }
 
 .dark-theme .nav__link:visited {
-	color: #f8f8f8;
+	color: #ffffff;
 }
