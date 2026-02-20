@@ -7,14 +7,16 @@
 .about__data {
 	padding: 2rem;
 	background-color: var(--container-color);
-	border: var(--border-thick);
-	box-shadow: var(--shadow-lg);
+	/* border: var(--border-thick); */
+	/* box-shadow: 0 8px 0 var(--memphis-black); */
 	/* grid-template-columns: repeat(2, 1fr);
   column-gap: 1.875rem; */
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
 	position: relative;
+	border-radius: 30px;
+	border: 3px solid white;
 }
 
 /* Memphis Triangle Arrow */
@@ -22,25 +24,24 @@
 	content: '';
 	width: 0;
 	height: 0;
-	border-top: 15px solid transparent;
-	border-bottom: 15px solid transparent;
-	border-right: 20px solid var(--memphis-black);
+	border-top: 18px solid transparent;
+	border-bottom: 18px solid transparent;
+	border-right: 23px solid #ffffff;
 	position: absolute;
-	left: -20px;
+	left: -23px;
 	top: 20%;
 }
 
 .about__data::after {
 	content: '';
+	width: 0;
+	height: 0;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-right: 20px solid var(--container-color);
 	position: absolute;
-	top: -20px;
-	right: -20px;
-	width: 50px;
-	height: 50px;
-	background: var(--memphis-pink);
-	border: var(--border-thick);
-	transform: rotate(15deg);
-	z-index: -1;
+	left: -20px;
+	top: calc(20% + 3px);
 }
 
 .about__description {
@@ -207,7 +208,8 @@
 		justify-content: center;
 		row-gap: 1.875rem;
 	}
-	.about__data::before {
+	.about__data::before,
+	.about__data::after {
 		display: none;
 	}
 
