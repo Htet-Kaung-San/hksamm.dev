@@ -1,7 +1,6 @@
 import React from 'react';
 import './About.css';
 import logo from '../../assets/me.jpg';
-import AboutBox from './AboutBox';
 
 const skillsList = [
 	{
@@ -52,7 +51,6 @@ const About = () => {
 					</div>
 				</div>
 			</div>
-			<AboutBox />
 		</section>
 	);
 };
