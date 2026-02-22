@@ -204,8 +204,10 @@
 	left: 0;
 	width: 100%;
 	height: 5px;
-	background: repeating-linear-gradient(90deg, var(--memphis-pink), var(--memphis-pink) 8px, var(--memphis-yellow) 8px, var(--memphis-yellow) 16px, var(--memphis-teal) 16px, var(--memphis-teal) 24px);
+	/* background: repeating-linear-gradient(90deg, var(--memphis-pink), var(--memphis-pink) 8px, var(--memphis-yellow) 8px, var(--memphis-yellow) 16px, var(--memphis-teal) 16px, var(--memphis-teal) 24px); */
+	background-color: var(--memphis-blue);
 }
+
 
 .home__education {
 	font-size: 1.2rem;

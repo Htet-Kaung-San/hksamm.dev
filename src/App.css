@@ -30,6 +30,29 @@
   letter-spacing: 0.4px;
 }
 
+.language-badge {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  border: 3px solid #ffffff;
+  background: #17223e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+  pointer-events: none;
+}
+
+.language-badge__icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
 /* Memphis floating decorations */
 
 
@@ -99,5 +122,17 @@
 
   .main.main--notfound {
     margin-top: 0;
+  }
+
+  .language-badge {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .language-badge__icon {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 }

@@ -5,6 +5,9 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import FireflyEffect from '../firefly-effect';
 
+const LANGUAGE_ICON =
+	'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWxhbmd1YWdlcy1pY29uIGx1Y2lkZS1sYW5ndWFnZXMiPjxwYXRoIGQ9Im01IDggNiA2Ii8+PHBhdGggZD0ibTQgMTQgNi02IDItMyIvPjxwYXRoIGQ9Ik0yIDVoMTIiLz48cGF0aCBkPSJNNyAyaDEiLz48cGF0aCBkPSJtMjIgMjItNS0xMC01IDEwIi8+PHBhdGggZD0iTTE0IDE4aDYiLz48L3N2Zz4=';
+
 function App() {
 	const currentYear = new Date().getFullYear();
 	const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
@@ -29,6 +32,11 @@ function App() {
 			/>
 			{!isNotFoundRoute && <UserInfo />}
 			{!isNotFoundRoute && <Sidebar />}
+			{!isNotFoundRoute && (
+				<div className="language-badge" aria-label="Language" title="Language">
+					<img src={LANGUAGE_ICON} alt="" className="language-badge__icon" aria-hidden="true" />
+				</div>
+			)}
 			<main className={`main ${isNotFoundRoute ? 'main--notfound' : ''}`}>
 				{isNotFoundRoute ? (
 					<NotFound />
