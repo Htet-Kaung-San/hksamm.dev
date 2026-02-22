@@ -96,7 +96,7 @@ const Contact = () => {
 
 					<input type="hidden" name="xcvbnm" />
 
-					<button type="submit" className={`btn ${isSending ? 'disabled-btn' : ''}`} disabled={isSending} onClick={() => handleClick()}>
+					<button type="submit" className={`btn contact__send-btn ${isSending ? 'disabled-btn' : ''}`} disabled={isSending} onClick={() => handleClick()}>
 						{isSending ? 'Sending...' : 'Send message'}
 					</button>
 				</form>

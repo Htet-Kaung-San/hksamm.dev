@@ -104,6 +104,21 @@
 	resize: none;
 }
 
+.contact__send-btn,
+.contact__send-btn:hover,
+.contact__send-btn:focus,
+.contact__send-btn:active {
+	background-color: #ffe156 !important;
+	color: #000000 !important;
+	border-radius: 999px;
+	box-shadow: none !important;
+	animation: none;
+}
+
+.contact__send-btn::before {
+	display: none;
+}
+
 @media screen and (max-width: 1024px) {
 	.contact__container {
 		grid-template-columns: 300px 360px;
