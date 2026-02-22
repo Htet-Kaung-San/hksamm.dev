@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 import './Contact.css';
 import * as Sentry from '@sentry/react';
 import { collectClientInfo } from '../../util/tracker';
+import mailAnimation from '../../assets/mail-animation.gif';
 
 const NotificationType = {
 	SUCCESS: 'SUCCESS',
@@ -73,6 +74,7 @@ const Contact = () => {
 				<div className="contact__info">
 					<h3 className="contact__title">Let's Talk about everything</h3>
 					<p className="contact__details">Don't like forms? Send me an email.</p>
+					<img src={mailAnimation} alt="Mail animation" className="contact__mail-gif" />
 				</div>
 
 				<form ref={form} onSubmit={sendEmail} className="contact__form">

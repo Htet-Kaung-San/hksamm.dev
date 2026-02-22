@@ -1,4 +1,4 @@
-import { Sidebar, Services, Resume, Portfolio, Home, Contact, About, TechStack } from './components';
+import { Sidebar, Services, Resume, Portfolio, Home, Contact, About, TechStack, NotFound } from './components';
 import './App.css';
 import UserInfo from './components/UserInfo';
 import { Analytics } from '@vercel/analytics/react';
@@ -7,6 +7,9 @@ import FireflyEffect from '../firefly-effect';
 
 function App() {
 	const currentYear = new Date().getFullYear();
+	const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
+	const normalizedPath = pathname.replace(/\/+$/, '') || '/';
+	const isNotFoundRoute = normalizedPath !== '/';
 
 	return (
 		<div className="app-shell">
@@ -24,25 +27,31 @@ function App() {
 				color3="#ffffff"
 				color4="#ffffff"
 			/>
-			<UserInfo />
-			<Sidebar />
-			<main className="main">
-				<>
-					<Home />
-					<About />
-					<Services />
-					<TechStack />
-					<Resume />
-					<Portfolio />
-					{/* <Pricing /> */}
-					<Contact />
-				</>
+			{!isNotFoundRoute && <UserInfo />}
+			{!isNotFoundRoute && <Sidebar />}
+			<main className={`main ${isNotFoundRoute ? 'main--notfound' : ''}`}>
+				{isNotFoundRoute ? (
+					<NotFound />
+				) : (
+					<>
+						<Home />
+						<About />
+						<Services />
+						<TechStack />
+						<Resume />
+						<Portfolio />
+						{/* <Pricing /> */}
+						<Contact />
+					</>
+				)}
 			</main>
-			<footer className="site-footer">
-				<div className="container site-footer__inner">
-					<p>&copy; {currentYear} Htet Kaung San. All rights reserved.</p>
-				</div>
-			</footer>
+			{!isNotFoundRoute && (
+				<footer className="site-footer">
+					<div className="container site-footer__inner">
+						<p>&copy; {currentYear} Htet Kaung San. All rights reserved.</p>
+					</div>
+				</footer>
+			)}
 			<Analytics />
 			<SpeedInsights />
 		</div>

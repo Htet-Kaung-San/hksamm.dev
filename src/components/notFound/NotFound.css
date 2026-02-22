@@ -1,0 +1,64 @@
+.notfound {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 1rem;
+	position: relative;
+	z-index: 1;
+}
+
+.notfound__card {
+	width: min(700px, 100%);
+	background: #ffffff;
+	border: var(--border-thick);
+	border-radius: 24px;
+	padding: 2rem;
+	text-align: center;
+	box-shadow: var(--shadow);
+}
+
+.notfound__gif {
+	width: min(420px, 100%);
+	height: auto;
+	display: block;
+	margin: 0 auto 1rem;
+	background: #ffffff;
+}
+
+.notfound__title {
+	font-size: var(--h2-font-size);
+	margin-bottom: 0.75rem;
+}
+
+.notfound__description {
+	color: var(--text-color);
+	margin: 0 auto 1.5rem;
+	max-width: 42ch;
+}
+
+.notfound__btn,
+.notfound__btn:hover,
+.notfound__btn:focus,
+.notfound__btn:active {
+	background-color: #ffe156 !important;
+	color: #000000 !important;
+	border-radius: 999px;
+	box-shadow: none !important;
+	animation: none;
+}
+
+.notfound__btn::before {
+	display: none;
+}
+
+@media screen and (max-width: 520px) {
+	.notfound__card {
+		padding: 1.25rem;
+		border-radius: 18px;
+	}
+
+	.notfound__title {
+		font-size: 1.5rem;
+	}
+}

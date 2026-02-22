@@ -9,6 +9,7 @@ import Contact from './contact/Contact';
 import Blog from './blog/Blog';
 import About from './about/About';
 import TechStack from './techStack/TechStack';
+import NotFound from './notFound/NotFound';
 
 export {
   Testimonials,
@@ -22,4 +23,5 @@ export {
   Blog,
   About,
   TechStack,
+  NotFound,
 };
