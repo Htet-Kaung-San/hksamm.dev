@@ -15,7 +15,7 @@
 	border-radius: 24px;
 	padding: 2rem;
 	text-align: center;
-	box-shadow: var(--shadow);
+	/* box-shadow: var(--shadow); */
 }
 
 .notfound__gif {
@@ -29,10 +29,11 @@
 .notfound__title {
 	font-size: var(--h2-font-size);
 	margin-bottom: 0.75rem;
+	color: black;
 }
 
 .notfound__description {
-	color: var(--text-color);
+	color: black;
 	margin: 0 auto 1.5rem;
 	max-width: 42ch;
 }
